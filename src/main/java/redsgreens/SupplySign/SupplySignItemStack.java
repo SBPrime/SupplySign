@@ -5,53 +5,51 @@ import org.bukkit.inventory.ItemStack;
 
 public class SupplySignItemStack {
 
-	private Material material;
-	private Short durability;
-	private Integer amount;
+    private final Material material;
+    private final int amount;
 
-	public SupplySignItemStack(Material m, Short d, Integer a)
-	{
-		material = m;
-		durability = d;
-		amount = a;
-	}
+    public SupplySignItemStack(Material m, int a)
+    {
+            material = m;
+            amount = a;
+    }
 
-	public ItemStack getItemStack()
-	{
-		return new ItemStack(material, amount, durability);
-	}
-	
-	public Short getDurability()
-	{
-		return durability;
-	}
-	
-	public Material getMaterial()
-	{
-		return material;
-	}
-	
-	public Integer getAmount()
-	{
-		return amount;
-	}
-	
-	public boolean equals(Object other) 
-	{
-	    if (this == other)
-	      return true;
-	    if (!(other instanceof SupplySignItemStack))
-	      return false;
-	    SupplySignItemStack otherIS = (SupplySignItemStack) other;
-	    return (this.material == otherIS.getMaterial() && this.durability == otherIS.getDurability() && this.amount == otherIS.getAmount()); 
-	}
+    public ItemStack getItemStack()
+    {
+            return new ItemStack(material, amount);
+    }
 
-	public int hashCode() { 
-		return this.material.hashCode() + this.durability.hashCode();	
-	}
+    public Material getMaterial()
+    {
+            return material;
+    }
+
+    public int getAmount()
+    {
+            return amount;
+    }
 	
-	public String toString()
-	{
-		return "Material=" + material.name().toLowerCase() + ", Durability=" + durability.toString() + ", Amount=" + amount.toString();
-	}
+    @Override
+    public boolean equals(Object other) 
+    {
+        if (this == other)
+          return true;
+        if (!(other instanceof SupplySignItemStack))
+          return false;
+        SupplySignItemStack otherIS = (SupplySignItemStack) other;
+        return (this.material == otherIS.getMaterial() && this.amount == otherIS.getAmount()); 
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public int hashCode() { return this.material.hashCode(); }
+	
+    @Override
+    public String toString()
+    {
+        return "Material=" + material.name().toLowerCase() + ", Amount=" + amount;
+    }
 }

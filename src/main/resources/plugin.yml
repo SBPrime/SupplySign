@@ -1,7 +1,8 @@
 name: SupplySign
 main: redsgreens.SupplySign.SupplySign
-version: 1.9.9b
+version: 1.10.0
 author: redsgreens
+api-version: 1.13
 commands:
   supplysign:
     description: 'Used to reload data and list available SupplySign kits' 
